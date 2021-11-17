@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('img').attr('src','https://www.darshan.ac.in/Content/media/DU-logo.svg')
+
+
+			$('.btn1').click(function(){
+				$('.tb1').toggle()		
+			});
+			$('.btn2').click(function(){
+				$('.tb2').toggle()		
+			});
+			$('.btn3').click(function(){
+				$('.tb3').toggle()		
+			});
+			$('.btn4').click(function(){
+				$('.tb4').toggle()		
+			});
+			$('.btn5').click(function(){
+				$('.tb5').toggle()		
+			});
+
+			$('.btn6').click(function(){
+				if($('input').val()==''){
+					$('span').show();
+				}
+				else if($('.btn6').text()=='Add Name'){
+					$('span').hide();
+					temp = "<tr class='tr1'><td>&nbsp;"+$('.input1').val()+"&nbsp;</td> <td class='edit'><button class='btn btn-outline-warning'> Edit <i class='fas fa-pencil-alt'></i></button></td> <td class='del'> <button class='btn btn-outline-danger '>Delete <i class='fas fa-times'></i></button> </td> </tr>"
+					$('.tbl1').append(temp);
+					$('.input1').val('');	
+					$('.input1').focus();						
+				}
+				else{
+					$('.btn6').text('Add Name');
+					$('.tr1').eq(editval).children().first().text($('.input1').val());
+					$('.input1').val('');	
+					$('.input1').focus();
+				}
+			});
+
+
+			$('.tbl1').on('click','.del',function(){
+				$(this).parent().remove();
+			});
+
+			$('.tbl1').on('click','.edit',function(){
+				$('.btn6').text('Edit');
+				$('span').hide();
+				$('.input1').focus();
+				editval = $(this).parent().index()
+				$('.input1').val($(this).siblings().first().text());
+			});
+
+			$('input').keypress(function(e){
+				if(e.which==13){
+					$('.btn6').trigger("click");
+				}
+			});
+
+/*			$(document).keyup(function(e){
+			if(e.keyCode == 46) {
+			    alert('Delete key released');
+			});
+			}*/
+
+		});
+	</script>
+
+</head>
+<body>
+	<div class="container-fluid pt-3 row">
+		<div class="col-md-5"><img src="" alt="Not Found!!!!!!!!!!" />
+		</div>
+		<div class="col-md-7 ">
+			<div align="right">
+				<button class="btn btn1">About</button>
+				<button class="btn btn2">Addmission</button>
+				<button class="btn btn3">Schools</button>
+				<button class="btn btn4">Campus</button>
+				<button class="btn btn5">Placements</button>
+			</div>
+			<div class="row">
+				<div class="col-md-5" >
+						<table class="table tb1 table-bordered" style="display: none; margin-left: 58px;">
+						  	<tbody>
+							    <tr>
+							      <td>About University</td>
+							    </tr>
+							    <tr>
+							      <td>About Trust</td>
+							    </tr>
+							    <tr>
+							      <td>Leadership</td>
+							    </tr>
+							    <tr>
+							      <td>IQAC</td>
+							    </tr>
+							    <tr>
+							      <td>Grievance Redressal Cell</td>
+							    </tr>
+							    <tr>
+							      <td>Anti-Ragging Committee</td>
+							    </tr>
+							    <tr>
+							      <td>Sexual Harassment & Monitoring Committee</td>
+							    </tr>
+							    <tr>
+							      <td>SC-ST Cell</td>
+							    </tr>
+							    <tr>
+							      <td>DU-Act</td>
+							    </tr>
+							</tbody>
+						</table>
+				</div>
+				<div class="col-md-5">
+						<table class="table tb2 table-bordered" style="display: none; margin-right: 100px;">
+						  	<tbody>
+							    <tr>
+							      <td>Programs Offered</td>
+							    </tr>
+							    <tr>
+							      <td>How to Apply</td>
+							    </tr>
+							    <tr>
+							      <td>Direct Admission Portal</td>
+							    </tr>
+							    <tr>
+							      <td>Why Darshan University?</td>
+							    </tr>
+							    <tr>
+							      <td>e-Brochures</td>
+							    </tr>
+							    <tr>
+							      <td>Career Guidance Booklets</td>
+							    </tr>
+							    <tr>
+							      <td>Scholarships</td>
+							    </tr>
+							    <tr>
+							      <td>Education Loan</td>
+							    </tr>
+							    <tr>
+							      <td>Admission Offices</td>
+							    </tr>
+							    <tr>
+							      <td>Transportation Service</td>
+							    </tr>
+							</tbody>
+						</table>
+				</div>
+				<div class="col-md-5">
+						<table class="table tb3 table-bordered" style="display: none; margin-left: 257px;">
+						  	<tbody>
+							    <tr>
+							      <td>School of Computer Science</td>
+							    </tr>
+							    <tr>
+							      <td>School of Engineering</td>
+							    </tr>
+							    <tr>
+							      <td>School of Diploma Engineering</td>
+							    </tr>
+							    <tr>
+							      <td>School of Management</td>
+							    </tr>
+							    <tr>
+							      <td>School of Science</td>
+							    </tr>
+							    <tr>
+							      <td>School of Design</td>
+							    </tr>
+							</tbody>
+						</table>
+				</div>
+				<div class="col-md-5">
+						<table class="table tb4 table-bordered" style="display: none; margin-left: 20px;">
+						  	<tbody>
+							    <tr>
+							      <td>Life at Campus</td>
+							    </tr>
+							    <tr>
+							      <td>Infrastructure</td>
+							    </tr>
+							    <tr>
+							      <td>360° View Virtual Tour</td>
+							    </tr>
+							    <tr>
+							      <td>Library Service</td>
+							    </tr>
+							    <tr>
+							      <td>Student Activity Center</td>
+							    </tr>
+							    <tr>
+							      <td>National Cadet Corps (NCC)</td>
+							    </tr>
+							</tbody>
+						</table>
+				</div>
+				<div class="col-md-5">
+						<table class="table tb5 table-bordered" style="display: none; margin-left: 457px; ">
+						  	<tbody>
+							    <tr>
+							      <td>Training & Placement Cell</td>
+							    </tr>
+							    <tr>
+							      <td>Placement News</td>
+							    </tr>
+							    <tr>
+							      <td>Placement Overview</td>
+							    </tr>
+							    <tr>
+							      <td>Placement 2020-21</td>
+							    </tr>
+							    <tr>
+							      <td>Placement 2019-20</td>
+							    </tr>
+							    <tr>
+							      <td>Placement 2018-19</td>
+							    </tr>
+							    <tr>
+							      <td>Placement 2017-18</td>
+							    </tr>
+							    <tr>
+							      <td>Our Leading Recruiters</td>
+							    </tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<span style="color: red; margin-left: 580px; display: none "  class="txt">Please Enter a valid Name</span>
+	
+	<div align="" style="margin-top: 10px;">
+		
+		<div class="col-md-12 row justify-content-center" > 
+			<input  type="text" class="form-control  input1" style="width: 300px;" >	
+			<button class="btn btn6 btn-outline-success ml-3">Add Name</button>
+		</div>
+		<table border="2" align="center" class="tbl1 justify-content-center mt-3" >
+			
+		</table>	
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
